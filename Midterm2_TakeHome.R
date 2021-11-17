@@ -9,6 +9,7 @@
 # sequence when you reach one.
 
 
+# First, I created a function that will determine whether or not the number is even.
 is.even <- function(x) {
   if (x %% 2 == 0) TRUE
   else FALSE
@@ -16,3 +17,26 @@ is.even <- function(x) {
 
 is.even(4)
 is.even(5)
+
+
+sequence <- function(n) {
+    if (is.even(n)) 
+      n/2
+    else 
+      3*n+1
+  }
+
+sequence(20)
+sequence(2)
+sequence(5)
+
+
+
+
+
+
+
+
+
+
+
