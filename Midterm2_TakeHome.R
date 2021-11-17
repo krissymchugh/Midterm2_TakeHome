@@ -31,6 +31,18 @@ sequence(2)
 sequence(5)
 
 
+new_number <- function(n) {
+  if (n==1) {
+    print('NULL')
+  }
+  else if (n %% 0) {
+    n/2
+  }
+   else {
+     3*n+1
+   }
+}
+
 
 
 
