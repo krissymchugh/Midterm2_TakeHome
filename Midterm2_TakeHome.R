@@ -9,21 +9,10 @@
 # sequence when you reach one.
 
 
-sequence <- function(n) {
-    if (is.even(n)) 
-      n/2
-    else 
-      3*n+1
-  }
-
-sequence(20)
-sequence(2)
-sequence(5)
-
 
 new_number <- function(n) {
   if (n==1) {
-    print('NULL')
+    NULL
   }
   else if (n %% 0) {
     n/2
@@ -32,6 +21,35 @@ new_number <- function(n) {
      3*n+1
    }
 }
+
+
+sequence <- function(n)  {
+    result <- n
+    while (n != 1) {
+    n <- new_number(n)
+    result <- c(result, n)
+  }
+  result
+}
+
+
+sequence(2)
+sequence(10)
+
+
+even.number <- function(x) {
+  if (x %% 2 == 0) TRUE
+  else FALSE
+}
+
+
+even.number(2)
+even.number(5)
+
+
+
+
+
 
 
 
