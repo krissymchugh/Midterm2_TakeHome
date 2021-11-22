@@ -42,10 +42,16 @@ even.number <- function(x) {
   else FALSE
 }
 
-
 even.number(2)
 even.number(5)
 
+next.number <- function(n) {
+  if (even.number(n)) n/2
+  else 3 * n + 1
+}
+
+next.number(6)
+next.number(10)
 
 
 
