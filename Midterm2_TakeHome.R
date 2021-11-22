@@ -10,32 +10,6 @@
 
 
 
-new_number <- function(n) {
-  if (n==1) {
-    NULL
-  }
-  else if (n %% 0) {
-    n/2
-  }
-   else {
-     3*n+1
-   }
-}
-
-
-sequence <- function(n)  {
-    result <- n
-    while (n != 1) {
-    n <- new_number(n)
-    result <- c(result, n)
-  }
-  result
-}
-
-
-sequence(2)
-sequence(10)
-
 
 even.number <- function(x) {
   if (x %% 2 == 0) TRUE
@@ -53,11 +27,21 @@ next.number <- function(n) {
 next.number(6)
 next.number(10)
 
-
-
-
-
-
+get_sequence <- function(input)
+{
+  
+  result <- input
+  while(input != 1)
+  {
+    input <- next.number(input)
+    result <- c(result, input)
+    
+  }
+  
+  return(result)
+}
+get_sequence(6)
+get_sequence
 
 
 
