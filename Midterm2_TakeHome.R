@@ -34,13 +34,13 @@ get_sequence <- function(input)
   result <- input
   while(input != 1)
   {
-
     input <- next.number(input)
     result <- c(result, input)
     
   }
   
   return(list(result=result, seqlength=length(result)))
+  hist(get_sequence)
   }
 
 get_sequence(5)
@@ -49,25 +49,26 @@ get_sequence(20)
 get_sequence(1000)
 
 
-nonvec_collatz <- function(ints){
-  collatz <- function(n) {
-    # n is a single integer
-    # recusively applies the Collatz conjecture to n
-    # returns the number of iterations it takes to reach 1
-    counter <- 0
-    while (n != 1){
-      counter <- counter + 1
-      n <- ifelse(n %% 2  == 0, n / 2, 3*n + 1)
+sequence.length <- vector(length=10000)
+sequence.length[1] <- 0
+for (n in 1:10000) {
+  x <- n
+  count <- 0 
+  while (x != 1 & x >= n) {
+    if (x %% 2 == 0) {
+      x <- x / 2
+      count <- count + 1
     }
-    counter
+    else {
+      x <- (3 * x + 1) / 2
+      count <- count + 2
+    } 
   }
-  # we use sapply to apply the above function to a vector of integers
-  sapply(ints, collatz)
+  count <- count + collatz.length[x]
+  sequence.length[n] <- count
 }
-set.seed(20)
-nonvec_collatz(20)
-collatz(50)
 
 
-
+hist(sequence.length)
+summary(sequence.length)
 
