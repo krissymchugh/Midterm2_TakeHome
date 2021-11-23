@@ -9,7 +9,7 @@
 # sequence when you reach one.
 
 
-
+library(tidyverse)
 
 even.number <- function(x) {
   if (x %% 2 == 0) TRUE
@@ -28,24 +28,45 @@ next.number(6)
 next.number(10)
 
 get_sequence <- function(input)
+  for (i in 1:10000)
 {
-  
+
   result <- input
   while(input != 1)
   {
+
     input <- next.number(input)
     result <- c(result, input)
     
   }
   
-  return(result)
+  return(list(result=result, seqlength=length(result)))
+  }
+
+get_sequence(5)
+get_sequence(13)
+get_sequence(20)
+get_sequence(1000)
+
+
+nonvec_collatz <- function(ints){
+  collatz <- function(n) {
+    # n is a single integer
+    # recusively applies the Collatz conjecture to n
+    # returns the number of iterations it takes to reach 1
+    counter <- 0
+    while (n != 1){
+      counter <- counter + 1
+      n <- ifelse(n %% 2  == 0, n / 2, 3*n + 1)
+    }
+    counter
+  }
+  # we use sapply to apply the above function to a vector of integers
+  sapply(ints, collatz)
 }
-get_sequence(6)
-get_sequence
-
-
-
-
+set.seed(20)
+nonvec_collatz(20)
+collatz(50)
 
 
 
